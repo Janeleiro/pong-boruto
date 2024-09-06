@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pong</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="ratio ratio-1x1">
+    <canvas id="game" width="160" height="200"></canvas>
+  </div>
+
+  <div id="hud">
+    <button id="left"></button>
+    <button id="right"></button>
+    <button id="start">Iniciar jogo</button>
+    <div id="points">
+      <div id="player-points">Jogador: <span>0</span></div>
+      <div id="enemy-points">Inimigo: <span>0</span></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import Game from './Game.js'
+
+    const game = new Game();
+
+    const startButton = document.querySelector('#start');
+
+    startButton.addEventListener('click', () => {
+      game.run();
+      startButton.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
